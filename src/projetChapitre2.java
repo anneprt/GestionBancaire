@@ -51,7 +51,21 @@ public class projetChapitre2 {
         //option 3 option non programme, affichage message
         System.out.print("Cette fonction n'est pas encore implémentée");
 
-        //
+        //option 4 sortir du programme
+        System.out.println("Merci et à bientôt");
+        System.exit(0);
+
+        //option 5 menu d'aide
+        System.out.println("Option 1. Pour créer un compte Courant entrer c ");
+        System.out.println("Pour créer un compte Joint entrer c ");
+        System.out.println("Pour créer un compte Epargne entrer e");
+        System.out.print("Puis, entrer le numero du compte, et");
+        System.out.println(" sa premiere valeur créditee ");
+        System.out.println("Dans le cas d'un compte epargne, entrer le taux ");
+        System.out.println("Option 2. Le système affiche les données du compte choisi ");
+        System.out.println("Option3. Ecrire une ligne comptable");
+        System.out.println("Option 4. Pour quitter le programme");
+        System.out.println("Option 5. Pour afficher de l'aide");
 
 
     }
