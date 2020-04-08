@@ -32,6 +32,27 @@ public class projetChapitre2 {
         System.out.print("Taux de placement : ");
         taux = lectureClavier.nextDouble();
 
+        //option 2 :affichage d'un compte
+
+        //demander à l'utilisateur un numero de compte à afficher
+        System.out.print("Quel compte souhaitez-vous afficher ? : ");
+        numeroLu = lectureClavier.nextLong();
+
+        //si le numero de compte existe
+        System.out.print("Le compte" + numeroCompte + "est un compte");
+
+        //cas du compte épargne
+        System.out.println("épargne dont le taux de placement est de " + taux);
+        System.out.println("Première valeur créditée" + valeur_courante);
+
+        //le compte n'existe pas affichage d'un message d'erreur
+        System.out.print("Le système ne reconnaît pas le compte" + numeroLu);
+
+        //option 3 option non programme, affichage message
+        System.out.print("Cette fonction n'est pas encore implémentée");
+
+        //
+
 
     }
 }
