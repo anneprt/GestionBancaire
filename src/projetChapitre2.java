@@ -21,6 +21,17 @@ public class projetChapitre2 {
 
         choix = lectureClavier.nextByte();
 
+        //option 1 : creation de compte
+        System.out.print("Type de compte [Types possibles : (c) courant, (j) joint ,(e) épargne] :");
+        typeCompte = lectureClavier.next().charAt(0);
+        System.out.print("Numéro du compte : ");
+        numeroCompte = lectureClavier.nextLong();
+        System.out.print("Première valeur créditée : ");
+        valeur_courante = lectureClavier.nextDouble();
+        //option 1 : cas du compte epargne
+        System.out.print("Taux de placement : ");
+        taux = lectureClavier.nextDouble();
+
 
     }
 }
