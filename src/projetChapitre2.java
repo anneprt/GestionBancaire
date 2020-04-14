@@ -9,6 +9,12 @@ public class projetChapitre2 {
         long numeroCompte = 0;
         long numeroLu = 0;
         Scanner lectureClavier = new Scanner(System.in);
+        
+        choix = lectureClavier.nextByte();
+        //Selon option choisie
+        switch (choix) {
+        }
+
 
         //Affichage du menu principal
         System.out.println("1.Créer un compte");
@@ -19,7 +25,6 @@ public class projetChapitre2 {
         System.out.println();
         System.out.print("Votre choix : ");
 
-        choix = lectureClavier.nextByte();
 
         //option 1 : creation de compte
         System.out.print("Type de compte [Types possibles : (c) courant, (j) joint ,(e) épargne] :");
