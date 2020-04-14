@@ -10,7 +10,17 @@ public class projetChapitre2 {
         long numeroLu = 0;
         Scanner lectureClavier = new Scanner(System.in);
 
+        //Affichage du menu principal
+        System.out.println("1.Créer un compte");
+        System.out.println("2.Afficher un compte");
+        System.out.println("3.Créer une ligne comptable");
+        System.out.println("4.Sortir");
+        System.out.println("5.Aide");
+        System.out.println();
+        System.out.print("Votre choix : ");
         choix = lectureClavier.nextByte();
+
+
         //Selon option choisie
         switch (choix) {
 
@@ -44,7 +54,7 @@ public class projetChapitre2 {
                     System.out.println("Première valeur créditée" + valeur_courante);
                 } else {
                     //compte non reconnu
-                    System.out.print("Le système ne reconnaît pas le compte" + numeroLu);
+                    System.out.print("Le système ne reconnaît pas le compte " + numeroLu);
                 }
                 break;
             case 3:
@@ -63,26 +73,11 @@ public class projetChapitre2 {
                 System.out.println(" sa premiere valeur créditee ");
                 System.out.println("Dans le cas d'un compte epargne, entrer le taux ");
                 System.out.println("Option 2. Le système affiche les données du compte choisi ");
-                System.out.println("Option3. Ecrire une ligne comptable");
+                System.out.println("Option 3. Ecrire une ligne comptable");
                 System.out.println("Option 4. Pour quitter le programme");
                 System.out.println("Option 5. Pour afficher de l'aide");
                 break;
-
         }
-
-
-        //Affichage du menu principal
-        System.out.println("1.Créer un compte");
-        System.out.println("2.Afficher un compte");
-        System.out.println("3.Créer une ligne comptable");
-        System.out.println("4.Sortir");
-        System.out.println("5.Aide");
-        System.out.println();
-        System.out.print("Votre choix : ");
-
-
-
-
 
     }
 }
