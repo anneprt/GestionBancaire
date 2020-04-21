@@ -71,8 +71,18 @@ public class projetChapitre2 {
             System.out.println("épargne dont le taux de placement est de " + taux);
         }
         System.out.println("Première valeur créditée " + valeur_courante);
-
     }
+//    public static void afficherCompte(long num,char type,double taux,double val){
+//        System.out.println("Le compte " + num + " est un compte");
+//        if (type == 'c') {
+//            System.out.println("courant");
+//        } else if (type == 'j') {
+//            System.out.println("joint");
+//        } else if (type == 'e') {
+//            System.out.println("épargne dont le taux de placement est de " + taux);
+//        }
+//        System.out.println("Première valeur créditée " + val);
+//    }
 
     public static byte menuPrincipal() {
         byte tmp;
