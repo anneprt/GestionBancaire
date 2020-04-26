@@ -1,16 +1,14 @@
 import java.util.Scanner;
 
-public class projetChapitre2 {
-    static byte choix;
-    static char typeCompte = '\0';
-    static double valeur_courante = 0.0;
-    static double taux = 0.0;
-    static long numeroCompte = 0;
-    static long numeroLu = 0;
+public class Projet {
+
 
     public static void main(String[] args) {
+        byte choix = 0;
+        String numeroLu = "";
 
         Scanner lectureClavier = new Scanner(System.in);
+        Compte c = new Compte();
 
         //Affichage du menu principal
         do {
@@ -18,27 +16,16 @@ public class projetChapitre2 {
             //Selon option choisie
             switch (choix) {
                 case 1:
-                    do {
-                        System.out.print("Type de compte [Types possibles : (c) courant, (j) joint ,(e) épargne] :");
-                        typeCompte = lectureClavier.next().charAt(0);
-                    } while (typeCompte != 'c' && typeCompte != 'j' && typeCompte != 'e');
-                    System.out.print("Numéro du compte : ");
-                    numeroCompte = lectureClavier.nextLong();
-                    System.out.print("Première valeur créditée : ");
-                    valeur_courante = lectureClavier.nextDouble();
-                    //option 1 : cas du compte epargne, demande du taux
-                    if (typeCompte == 'e') {
-                        System.out.print("Taux de placement : ");
-                        taux = lectureClavier.nextDouble();
-                    }
+                    c.creerCompte();
+
                     break;
                 case 2:
                     //demander à l'utilisateur un numero de compte à afficher
                     System.out.print("Quel compte souhaitez-vous afficher ? : ");
-                    numeroLu = lectureClavier.nextLong();
+                    numeroLu = lectureClavier.next();
                     //verifier que le compte existe
-                    if (numeroLu == numeroCompte) {
-                        afficherCompte();
+                    if (numeroLu.equalsIgnoreCase(c.numeroCompte)) {
+                        c.afficherCompte();
                     } else {
                         //compte non reconnu
                         System.out.println("Le système ne reconnaît pas le compte " + numeroLu);
@@ -61,17 +48,7 @@ public class projetChapitre2 {
         } while (choix != 4);
     }
 
-    public static void afficherCompte() {
-        System.out.println("Le compte " + numeroCompte + " est un compte");
-        if (typeCompte == 'c') {
-            System.out.println("courant");
-        } else if (typeCompte == 'j') {
-            System.out.println("joint");
-        } else if (typeCompte == 'e') {
-            System.out.println("épargne dont le taux de placement est de " + taux);
-        }
-        System.out.println("Première valeur créditée " + valeur_courante);
-    }
+
 //    public static void afficherCompte(long num,char type,double taux,double val){
 //        System.out.println("Le compte " + num + " est un compte");
 //        if (type == 'c') {
@@ -117,4 +94,6 @@ public class projetChapitre2 {
         System.out.println("Option 5. Pour afficher de l'aide");
 
     }
+
+
 }
