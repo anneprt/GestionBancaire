@@ -6,7 +6,6 @@ public class Projet {
     public static void main(String[] args) {
         byte choix = 0;
         String numeroLu = "";
-
         Scanner lectureClavier = new Scanner(System.in);
         Compte c = new Compte();
 
@@ -17,7 +16,6 @@ public class Projet {
             switch (choix) {
                 case 1:
                     c.creerCompte();
-
                     break;
                 case 2:
                     //demander à l'utilisateur un numero de compte à afficher
@@ -32,7 +30,13 @@ public class Projet {
                     }
                     break;
                 case 3:
-                    System.out.println("Cette fonction n'est pas encore implémentée");
+                    System.out.println("Pour quel compte souhaitez créer une ligne?:");
+                    numeroLu = lectureClavier.next();
+                    if (numeroLu.equalsIgnoreCase(c.numeroCompte)) {
+                        c.creerLigne();
+                    } else {
+                        System.out.println("Le système ne reconnaît pas le compte " + numeroLu);
+                    }
                     break;
                 case 4:
                     sortir();
