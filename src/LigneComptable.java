@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 public class LigneComptable {
-    public double valeur;
-    public String date;
-    public String motif;
-    public String mode;
+    private double valeur;
+    private String date;
+    private String motif;
+    private String mode;
 
     public void creerLigneComptable() {
         Scanner lectureClavier = new Scanner(System.in);
@@ -16,6 +16,22 @@ public class LigneComptable {
         motif = lectureClavier.next();
         System.out.print("Mode [C(B), N(° Cheque), V(irement ) ]: ");
         mode = lectureClavier.next();
+    }
+
+    public double quelleValeur() {
+        return valeur;
+    }
+
+    public String quelMotif() {
+        return motif;
+    }
+
+    public String quelMode() {
+        return mode;
+    }
+
+    public String quelleDate() {
+        return date;
     }
 
     public void afficherLigne() {
