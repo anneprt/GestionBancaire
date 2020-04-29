@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Compte {
     private String typeCompte;
-    private double valeur_courante;
+    protected double valeur_courante;
     private double taux;
     private String numeroCompte;
     private LigneComptable ligne;
@@ -20,31 +20,33 @@ public class Compte {
         return valeur_courante;
     }
 
-    public double quelTaux() {
-        return taux;
-    }
-
     public Compte() {
         Scanner lectureClavier = new Scanner(System.in);
-        typeCompte = contrôleType();
+        typeCompte = controleType();
         System.out.print("Numéro du compte : ");
         numeroCompte = lectureClavier.next();
-        if (typeCompte.equalsIgnoreCase("Epargne")) {
-            System.out.print("Taux de placement : ");
-            taux = lectureClavier.nextDouble();
-        }
-        valeur_courante = contrôleValinit();
+        valeur_courante = controleValinit();
         nombreLigneReel = 0;
     }
 
-    public Compte(String num) {
-        numeroCompte = num;
-        nombreLigneReel = 0;
+    public Compte(String type) {
+        Scanner lectureClavier = new Scanner(System.in);
+        if (type.equalsIgnoreCase("Epargne")) {
+            typeCompte = type;
+            System.out.print("Numéro du compte : ");
+            numeroCompte = lectureClavier.next();
+            valeur_courante = controleValinit();
+            nombreLigneReel = 0;
+        }
+    }
+
+    public LigneComptable quelleLigneCompable() {
+        return ligne;
     }
 
     public void creerCompte() {
         char tmp;
-        typeCompte = contrôleType();
+        typeCompte = controleType();
         Scanner lectureClavier = new Scanner(System.in);
         do {
             System.out.print("Type de compte [Types possibles : (c) courant, (j) joint ,(e) épargne] :");
@@ -68,7 +70,7 @@ public class Compte {
             taux = lectureClavier.nextDouble();
         }
         System.out.print("Valeur initiale du compte : ");
-        valeur_courante = contrôleValinit();
+        valeur_courante = controleValinit();
         nombreLigneReel = 0;
     }
 
@@ -80,16 +82,16 @@ public class Compte {
 
     public void afficherCompte() {
         System.out.println("Le compte " + numeroCompte + " est un compte");
-        if (typeCompte.equalsIgnoreCase("Epargne")) {
-            System.out.println("épargne dont le taux de placement est de " + taux);
-        }
+
         if (nombreLigneReel > 0) {
             ligne.afficherLigne();
+            System.out.println("Valeur courante : " + valeur_courante);
         }
-        System.out.println("Première valeur créditée " + valeur_courante);
+        if (valeur_courante < 0)
+            System.out.println("Attention compte débiteur !!!");
     }
 
-    private String contrôleType() {
+    private String controleType() {
         char tmpc;
         Scanner lectureClavier = new Scanner(System.in);
         String tmpS = "";
@@ -105,14 +107,11 @@ public class Compte {
             case 'J':
                 typeCompte = "Joint";
                 break;
-            case 'E':
-                typeCompte = "Epargne";
-                break;
         }
         return tmpS;
     }
 
-    private double contrôleValinit() {
+    private double controleValinit() {
         double tmp, tmpval;
         Scanner lectureClavier = new Scanner(System.in);
         do {
