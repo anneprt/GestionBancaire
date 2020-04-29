@@ -14,7 +14,7 @@ public class LigneComptable {
         date = lectureClavier.next();
         System.out.print("Motif de l'operation [s(alaire),l(oyer), a(limentation), d(ivers)]");
         motif = lectureClavier.next();
-        System.out.print("Mode [C(B), N(° Cheque), V(irement ) ]: ");
+        System.out.print("Mode [C(B), N(° Chèque), V(irement ) ]: ");
         mode = lectureClavier.next();
     }
 

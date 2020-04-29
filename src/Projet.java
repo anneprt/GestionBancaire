@@ -22,7 +22,7 @@ public class Projet {
                     System.out.print("Quel compte souhaitez-vous afficher ? : ");
                     numeroLu = lectureClavier.next();
                     //verifier que le compte existe
-                    if (numeroLu.equalsIgnoreCase(c.numeroCompte)) {
+                    if (numeroLu.equalsIgnoreCase(c.quelNuméroDeCompte())) {
                         c.afficherCompte();
                     } else {
                         //compte non reconnu
@@ -32,7 +32,7 @@ public class Projet {
                 case 3:
                     System.out.println("Pour quel compte souhaitez créer une ligne?:");
                     numeroLu = lectureClavier.next();
-                    if (numeroLu.equalsIgnoreCase(c.numeroCompte)) {
+                    if (numeroLu.equalsIgnoreCase(c.quelNuméroDeCompte())) {
                         c.creerLigne();
                     } else {
                         System.out.println("Le système ne reconnaît pas le compte " + numeroLu);
