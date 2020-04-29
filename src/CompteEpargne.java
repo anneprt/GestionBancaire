@@ -10,7 +10,7 @@ public class CompteEpargne extends Compte {
     }
 
     public void afficherCpte() {
-
+        super.afficherCompte();
         System.out.println(" Taux d'epargne du compte :" + taux);
     }
 

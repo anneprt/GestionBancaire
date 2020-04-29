@@ -16,7 +16,9 @@ public class Projet {
             //Selon option choisie
             switch (choix) {
                 case 1:
-                    c = new Compte();
+                    System.out.print(" Compte Epargne (o/n) : ");
+                    if (lectureClavier.next().charAt(0) == 'o') c = new CompteEpargne();
+                    else c = new Compte();
                     break;
                 case 2:
                     //demander à l'utilisateur un numero de compte à afficher

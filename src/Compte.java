@@ -81,8 +81,7 @@ public class Compte {
     }
 
     public void afficherCompte() {
-        System.out.println("Le compte " + numeroCompte + " est un compte");
-
+        System.out.println("Le compte " + numeroCompte + " est un compte " + typeCompte);
         if (nombreLigneReel > 0) {
             ligne.afficherLigne();
             System.out.println("Valeur courante : " + valeur_courante);
