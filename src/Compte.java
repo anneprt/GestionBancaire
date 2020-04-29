@@ -1,12 +1,28 @@
 import java.util.Scanner;
 
 public class Compte {
-    public String typeCompte;
-    public double valeur_courante;
-    public double taux;
-    public String numeroCompte;
-    public LigneComptable ligne;
-    public int nombreLigneReel;
+    private String typeCompte;
+    private double valeur_courante;
+    private double taux;
+    private String numeroCompte;
+    private LigneComptable ligne;
+    private int nombreLigneReel;
+
+    public String quelTypeDeCompte() {
+        return typeCompte;
+    }
+
+    public String quelNuméroDeCompte() {
+        return numeroCompte;
+    }
+
+    public double quelleValeurCourante() {
+        return valeur_courante;
+    }
+
+    public double quelTaux() {
+        return taux;
+    }
 
     public void creerCompte() {
         char tmp;
