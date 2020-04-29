@@ -6,8 +6,9 @@ public class Projet {
     public static void main(String[] args) {
         byte choix = 0;
         String numeroLu = "";
+        String vide = "";
         Scanner lectureClavier = new Scanner(System.in);
-        Compte c = new Compte();
+        Compte c = new Compte(vide);
 
         //Affichage du menu principal
         do {
@@ -15,7 +16,7 @@ public class Projet {
             //Selon option choisie
             switch (choix) {
                 case 1:
-                    c.creerCompte();
+                    c = new Compte();
                     break;
                 case 2:
                     //demander à l'utilisateur un numero de compte à afficher
