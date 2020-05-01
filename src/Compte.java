@@ -5,8 +5,9 @@ public class Compte {
     protected double valeur_courante;
     private double taux;
     private String numeroCompte;
-    private LigneComptable ligne;
+    public static final int NOMBRE_LIGNE = 10;
     private int nombreLigneReel;
+    private LigneComptable[] ligne;
 
     public String quelTypeDeCompte() {
         return typeCompte;
@@ -20,13 +21,15 @@ public class Compte {
         return valeur_courante;
     }
 
+
     public Compte() {
         Scanner lectureClavier = new Scanner(System.in);
         typeCompte = controleType();
         System.out.print("Numéro du compte : ");
         numeroCompte = lectureClavier.next();
         valeur_courante = controleValinit();
-        nombreLigneReel = 0;
+        ligne = new LigneComptable[NOMBRE_LIGNE];
+        nombreLigneReel = -1;
     }
 
     public Compte(String type) {
@@ -36,11 +39,12 @@ public class Compte {
             System.out.print("Numéro du compte : ");
             numeroCompte = lectureClavier.next();
             valeur_courante = controleValinit();
-            nombreLigneReel = 0;
+            ligne = new LigneComptable[NOMBRE_LIGNE];
+            nombreLigneReel = -1;
         }
     }
 
-    public LigneComptable quelleLigneCompable() {
+    public LigneComptable[] quelleLigneCompable() {
         return ligne;
     }
 
@@ -75,17 +79,32 @@ public class Compte {
     }
 
     public void creerLigne() {
-        ligne = new LigneComptable();
+        nombreLigneReel++;
+        if (nombreLigneReel < NOMBRE_LIGNE) {
+            ligne[nombreLigneReel] = new LigneComptable();
+        } else {
+            nombreLigneReel++;
+            decalerLesLignes();
+            ligne[nombreLigneReel] = new LigneComptable();
+        }
+        //ligne = new LigneComptable();
         nombreLigneReel = 1;
-        valeur_courante = valeur_courante + ligne.quelleValeur();
+        valeur_courante = valeur_courante + ligne[nombreLigneReel].quelleValeur();
+    }
+
+    private void decalerLesLignes() {
+        for (int i = 1; i < NOMBRE_LIGNE; i++) {
+            ligne[i = 1] = ligne[1];
+        }
     }
 
     public void afficherCompte() {
         System.out.println("Le compte " + numeroCompte + " est un compte " + typeCompte);
         if (nombreLigneReel > 0) {
-            ligne.afficherLigne();
-            System.out.println("Valeur courante : " + valeur_courante);
+            for (int i = 0; i <= nombreLigneReel; i++) ligne[i].afficherLigne();
+
         }
+        System.out.println("Valeur courante : " + valeur_courante);
         if (valeur_courante < 0)
             System.out.println("Attention compte débiteur !!!");
     }
