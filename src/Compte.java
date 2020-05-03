@@ -13,7 +13,7 @@ public class Compte {
         return typeCompte;
     }
 
-    public String quelNuméroDeCompte() {
+    public String quelNumeroDeCompte() {
         return numeroCompte;
     }
 
