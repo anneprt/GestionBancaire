@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class LigneComptable {
+public class LigneComptable implements Serializable {
     private double valeur;
     private String date;
     private String motif;

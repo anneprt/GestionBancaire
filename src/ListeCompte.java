@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 
-public class ListeCompte {
+public class ListeCompte implements Serializable {
     private HashMap<String, Compte> liste;
 
     public ListeCompte() {

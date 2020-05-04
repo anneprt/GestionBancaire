@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class CompteEpargne extends Compte {
+public class CompteEpargne extends Compte implements Serializable {
 
     private double taux;
 

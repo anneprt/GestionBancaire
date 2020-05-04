@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Compte {
+public class Compte implements Serializable {
     private String typeCompte;
     protected double valeur_courante;
     private double taux;
