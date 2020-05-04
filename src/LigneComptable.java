@@ -1,4 +1,7 @@
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class LigneComptable implements Serializable {
@@ -13,8 +16,8 @@ public class LigneComptable implements Serializable {
         valeur = lectureClavier.nextDouble();
         System.out.print("Date de l'opération [jj/mm/an] ");
         date = lectureClavier.next();
-        motif = contrôleMotif();
-        mode = contrôleMode();
+        motif = controleMotif();
+        mode = controleMode();
     }
 
     public double quelleValeur() {
@@ -39,12 +42,12 @@ public class LigneComptable implements Serializable {
         valeur = lectureClavier.nextDouble();
         System.out.print("Date de l'opération [jj/mm/an] ");
         date = lectureClavier.next();
-        motif = contrôleMotif();
+        motif = controleMotif();
         System.out.print("Motif de l'operation [s(alaire),l(oyer), a(limentation), d(ivers)]");
         motif = lectureClavier.next();
         System.out.print("Mode [C(B), N(° Chèque), V(irement ) ]: ");
         mode = lectureClavier.next();
-        mode = contrôleMode();
+        mode = controleMode();
     }
 
     public void afficherLigne() {
@@ -56,7 +59,7 @@ public class LigneComptable implements Serializable {
         System.out.println(" le : " + date + " motif : " + motif + " mode : " + mode);
     }
 
-    private String contrôleMode() {
+    private String controleMode() {
         String tmpS = "";
         char tmpc;
         Scanner lectureClavier = new Scanner(System.in);
@@ -78,7 +81,7 @@ public class LigneComptable implements Serializable {
         return tmpS;
     }
 
-    private String contrôleMotif() {
+    private String controleMotif() {
         String tmpS = "";
         char tmpc;
         Scanner lectureClavier = new Scanner(System.in);
@@ -102,6 +105,25 @@ public class LigneComptable implements Serializable {
                 break;
         }
         return tmpS;
+    }
+
+    private String controledate() {
+        Scanner lectureClavier = new Scanner(System.in);
+        int nb = 0;
+        Date d = null;
+        SimpleDateFormat formatIn = new SimpleDateFormat("dd/mm/yyyy");
+        String sdate;
+        while (d == null) {
+            try {
+                System.out.print("Entrer une date (jj/mm/aaaa): ");
+                d = formatIn.parse(lectureClavier.next());
+            } catch (ParseException p) {
+                nb++;
+                if (nb >= 3) d = new Date();
+            }
+        }
+        sdate = formatIn.format(d);
+        return sdate;
     }
 
 

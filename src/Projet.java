@@ -9,6 +9,11 @@ public class Projet {
         String vide = "";
         Scanner lectureClavier = new Scanner(System.in);
         ListeCompte C = new ListeCompte();
+        FichierCompte F = new FichierCompte();
+        if (F.ouvrir("L")) {
+            C = F.lire();
+            F.fermer();
+        }
 
         //Affichage du menu principal
         do {
@@ -43,6 +48,10 @@ public class Projet {
                     numeroLu = lectureClavier.next();
                     C.supprimeUnCompte(numeroLu);
                 case 6:
+                    System.out.println("Sauvegarde des données dans Compte.dat");
+                    F.ouvrir("E");
+                    F.ecrire(C);
+                    F.fermer();
                     sortir();
                     break;
                 case 7:
